@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Krishna Kumar | Web Developer</title>
 
 <style>
-body {
+<script>
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      card.style.opacity = 1;
+      card.style.transform = 'translateY(0)';
+    }
+  });
+});
+</script>body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
