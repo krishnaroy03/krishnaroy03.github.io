@@ -1,0 +1,60 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0f2c35;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.todo-container {
+  background: #1f3d45;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+.input-box {
+  display: flex;
+  gap: 5px;
+}
+
+input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  padding: 8px 12px;
+  background: cyan;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+li {
+  background: #2d555f;
+  padding: 8px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 6px;
+}
+
+li span {
+  cursor: pointer;
+  color: red;
+}
