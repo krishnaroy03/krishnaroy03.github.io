@@ -1,142 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
-  <.dark-btn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  padding: 8px 12px;
-  background: #000;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-body.dark .dark-btn {
-  background: white;
-  color: black;
-}>
-body {
-  font-family: Arial, sans-serif;
-}
-
-body.dark {
-  background: #121212;
-  color: white;
-}
-
-a {
-  color: #4da3ff;
-}
-  </style>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Krishna Kumar | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Dark Mode Example</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: white;
+      color: black;
+      transition: 0.3s;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    body.dark {
+      background: #111;
+      color: white;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+      background: black;
+      color: white;
+    }
+
+    body.dark button {
+      background: white;
+      color: black;
+    }
+  </style>
 </head>
-<button onclick="toggleDarkMode()" class="dark-btn">
-  🌙 Dark Mode
-</button>
-  <button onclick="toggleDarkMode()" id="modeBtn">
-  🌙 Dark Mode
-  </button>
-  <button onclick="toggleDarkMode()">Dark Mode</button>
 
-  <header class="hero">
-    <div class="photo">Profile Photo</div>
-    <h1>Krishna Kumar</h1>
-    <p>Web Developer | Learner | Tech Enthusiast</p>
-  </header>
+<body>
 
-  <section class="card">
-    <h2>About Me</h2>
-    <p>
-      I am learning web development and building my own projects.
-      This is my personal portfolio website hosted on GitHub Pages.
-    </p>
-  </section>
-<ul>
-  <li>Personal Portfolio Website</li>
-  <li>
-    <a href="calculator.html" target="_blank">
-      Basic Calculator (HTML/CSS/JS)
-    </a>
-  </li>
-  <li>Practice Coding Projects</li>
-</ul>
-  <section class="card">
-    <h2>Skills</h2>
-    <div class="skills">
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>JavaScript</span>
-      <span>GitHub</span>
-      <span>Python</span>
-    </div>
-  </section>
+  <h1>Hello Krishna 👋</h1>
+  <p>Click button to change mode</p>
 
-  <section class="card">
-    <h2>Projects</h2><ul>
-  <li>
-    <a href="https://krishnaroy03.github.io" target="_blank">
-      Personal Portfolio Website
-    </a>
-  </li>
-  <li>
-    <a href="calculator.html" target="_blank">
-      Basic Calculator (HTML/CSS/JS)
-    </a>
-  </li>
-    </ul>
-    
-  </section>
+  <button onclick="toggleMode()">Dark / Light</button>
 
-  <section class="card">
-    <h2>Resume</h2>
-    <a class="btn" href="resume.pdf">Download Resume</a>
-  </section>
-
-  <section class="card">
-    <h2>Contact</h2>
-    <p>Email:
-      <a href="mailto: realkrishnaroyrkr@gmail.com">realkrishnaroyrkr@gmail.com</a>
-    </p>
-    <p>
-      WhatsApp:
-      <li>
-  To-Do List App 
-  <a href="todo.html" target="_blank">To-Do List App (JavaScript)</a>
-      <a href="https://wa.me/+919973667658">Chat on WhatsApp</a>
-    </p>
-  </section>
-
-  <footer>
-    © 2025 Krishna Kumar | All Rights Reserved
-  </footer>
-<script>
-function toggleDarkMode() {
-  document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("mode", "dark");
-    document.getElementById("modeBtn").innerText = "☀️ Light Mode";
-  } else {
-    localStorage.setItem("mode", "light");
-    document.getElementById("modeBtn").innerText = "🌙 Dark Mode";
-  }
-}
-
-window.onload = function () {
-  if (localStorage.getItem("mode") === "dark") {
-    document.body.classList.add("dark");
-    document.getElementById("modeBtn").innerText = "☀️ Light Mode";
-  }
-};
-</script>
   <script>
-function toggleDarkMode() {
-  document.body.classList.toggle("dark");
-}
-  </script>  
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
+
 </body>
 </html>
