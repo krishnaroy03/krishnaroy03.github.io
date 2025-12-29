@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    body { text-align:center; font-family:Arial; background:#0f2a32; color:white; }
+    input { width:200px; height:40px; font-size:18px; margin:5px; }
+    button { width:45px; height:45px; font-size:18px; margin:3px; }
+  </style>
+</head>
+<body>
+
+<h2>Calculator</h2>
+
+<input id="res"><br>
+
+<button onclick="add('1')">1</button>
+<button onclick="add('2')">2</button>
+<button onclick="add('3')">3</button>
+<button onclick="add('+')">+</button><br>
+
+<button onclick="add('4')">4</button>
+<button onclick="add('5')">5</button>
+<button onclick="add('6')">6</button>
+<button onclick="add('-')">-</button><br>
+
+<button onclick="add('7')">7</button>
+<button onclick="add('8')">8</button>
+<button onclick="add('9')">9</button>
+<button onclick="add('*')">*</button><br>
+
+<button onclick="add('0')">0</button>
+<button onclick="calc()">=</button>
+<button onclick="clr()">C</button>
+<button onclick="add('/')">/</button>
+
+<script>
+function add(v){ res.value += v; }
+function calc(){ res.value = eval(res.value); }
+function clr(){ res.value = ""; }
+</script>
+
+</body>
+</html>
