@@ -15,7 +15,7 @@
     .todo-container {
       background: #fff;
       padding: 20px;
-      width: 300px;
+      width: 320px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
@@ -46,43 +46,80 @@
       margin-top: 5px;
       display: flex;
       justify-content: space-between;
-    }
-    li span {
       cursor: pointer;
+    }
+    li.completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+    span {
       color: red;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <div class="todo-container">
-    <h2>To-Do List</h2>
-    <input type="text" id="taskInput" placeholder="Enter a task">
-    <button onclick="addTask()">Add Task</button>
-    <ul id="taskList"></ul>
-  </div>
+<div class="todo-container">
+  <h2>To-Do List</h2>
+  <input type="text" id="taskInput" placeholder="Enter a task">
+  <button onclick="addTask()">Add Task</button>
+  <ul id="taskList"></ul>
+</div>
 
-  <script>
-    function addTask() {
-      const input = document.getElementById("taskInput");
-      const taskText = input.value;
+<script>
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-      if (taskText === "") {
-        alert("Please enter a task");
-        return;
-      }
+  function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
 
+  function renderTasks() {
+    const list = document.getElementById("taskList");
+    list.innerHTML = "";
+    tasks.forEach((task, index) => {
       const li = document.createElement("li");
-      li.innerHTML = taskText + " <span onclick='removeTask(this)'>X</span>";
+      li.textContent = task.text;
+      if (task.done) li.classList.add("completed");
 
-      document.getElementById("taskList").appendChild(li);
-      input.value = "";
-    }
+      li.onclick = () => toggleTask(index);
 
-    function removeTask(element) {
-      element.parentElement.remove();
-    }
-  </script>
+      const span = document.createElement("span");
+      span.textContent = " X";
+      span.onclick = (e) => {
+        e.stopPropagation();
+        deleteTask(index);
+      };
+
+      li.appendChild(span);
+      list.appendChild(li);
+    });
+  }
+
+  function addTask() {
+    const input = document.getElementById("taskInput");
+    if (input.value === "") return alert("Enter a task");
+
+    tasks.push({ text: input.value, done: false });
+    input.value = "";
+    saveTasks();
+    renderTasks();
+  }
+
+  function toggleTask(index) {
+    tasks[index].done = !tasks[index].done;
+    saveTasks();
+    renderTasks();
+  }
+
+  function deleteTask(index) {
+    tasks.splice(index, 1);
+    saveTasks();
+    renderTasks();
+  }
+
+  renderTasks();
+</script>
 
 </body>
 </html>
